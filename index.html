@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For Parnika ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      overflow-x: hidden;
+      color: #fff;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+    }
+
+    .active {
+      display: flex;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 12px 26px;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      margin: 10px;
+      background: #ff5c8d;
+      color: white;
+    }
+
+    #noBtn {
+      position: absolute;
+    }
+
+    /* Hearts animation */
+    .heart {
+      position: fixed;
+      top: -10px;
+      color: #ff4d6d;
+      font-size: 20px;
+      animation: fall linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(100vh); opacity: 0; }
+    }
+
+    /* Gallery */
+    .gallery img,
+    .gallery video {
+      width: 240px;
+      border-radius: 18px;
+      margin: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    }
+
+    /* Letter */
+    .letter {
+      max-width: 820px;
+      background: rgba(255,255,255,0.15);
+      padding: 30px;
+      border-radius: 22px;
+      backdrop-filter: blur(6px);
+      text-align: left;
+      line-height: 1.7;
+      font-size: 1.05rem;
+    }
+
+    .signature {
+      margin-top: 30px;
+      text-align: right;
+      font-size: 1.2rem;
+      font-style: italic;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ❤️ PAGE 1 -->
+<div class="page active" id="page1">
+  <h1>Parnika… will you be my Valentine? 🥺❤️</h1>
+
+  <img src="us1.jpg" width="220" style="border-radius:20px; margin-bottom:20px;">
+
+  <div>
+    <button onclick="goToPage(2)">Yes 💖</button>
+    <button id="noBtn">No 💔</button>
+  </div>
+</div>
+
+<!-- 💕 PAGE 2 -->
+<div class="page" id="page2">
+  <h1>OMGGGG!!! 😭❤️<br>Parnika, you really clicked YES!!</h1>
+
+  <div class="gallery">
+    <img src="us2.jpg">
+    <img src="us3.jpg">
+    <video src="us4.mp4" controls></video>
+    <img src="us5.jpg">
+  </div>
+
+  <button onclick="goToPage(3)">Click here for something special 💌</button>
+</div>
+
+<!-- 💌 PAGE 3 -->
+<div class="page" id="page3">
+  <div class="letter">
+    <p>
+      Parnika, I love you for a million reasons, and even then, words still feel small compared to what I feel for you.
+      I love you for who you are, and for who I become when I’m with you.
+      You make life feel softer, warmer, and somehow more meaningful just by existing in it.
+    </p>
+
+    <p>
+      I love the way you care—deeply, genuinely, without pretending.
+      The way you notice little things, the way your emotions are real and raw,
+      the way your heart is always involved in everything you do.
+      I love how strong you are, even on days when you don’t see it yourself.
+      And I love how human you are—your flaws, your overthinking, your vulnerability—because they make you you.
+    </p>
+
+    <p>
+      With you, I don’t have to act or prove anything.
+      I can just be me.
+      That comfort is something I’ve never felt this deeply before.
+      You feel like home in a world that’s constantly rushing.
+    </p>
+
+    <p>
+      Most of all, I love you because loving you feels natural.
+      It’s not forced or dramatic—it’s steady, deep, and real.
+      You’re not just someone I love; you’re someone I choose, every single day.
+      And I’ll keep choosing you, always. ❤️
+    </p>
+
+    <p style="text-align:center; font-size:1.2rem; color:#ffd1dc;">
+      Happy Propose Day, my love 💍❤️
+    </p>
+
+    <div class="signature">~ from Krrish</div>
+  </div>
+</div>
+
+<script>
+  function goToPage(page) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById('page' + page).classList.add('active');
+  }
+
+  // No button escape
+  const noBtn = document.getElementById('noBtn');
+  noBtn.addEventListener('mouseover', () => {
+    noBtn.style.left = Math.random() * 80 + 'vw';
+    noBtn.style.top = Math.random() * 80 + 'vh';
+  });
+
+  // Hearts animation
+  function createHeart() {
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    heart.innerHTML = '❤️';
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.animationDuration = Math.random() * 3 + 3 + 's';
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 6000);
+  }
+  setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
