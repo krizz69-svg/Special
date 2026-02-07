@@ -30,7 +30,7 @@
     }
 
     h1 {
-      font-size: 2.4rem;
+      font-size: 2.3rem;
       margin-bottom: 20px;
     }
 
@@ -49,7 +49,7 @@
       position: absolute;
     }
 
-    /* Hearts animation */
+    /* ❤️ Hearts */
     .heart {
       position: fixed;
       top: -10px;
@@ -64,16 +64,43 @@
       100% { transform: translateY(100vh); opacity: 0; }
     }
 
-    /* Gallery */
-    .gallery img,
-    .gallery video {
-      width: 240px;
-      border-radius: 18px;
-      margin: 10px;
+    /* 🐶 GIF */
+    .gif {
+      width: 220px;
+      border-radius: 20px;
+      margin-bottom: 20px;
       box-shadow: 0 0 20px rgba(0,0,0,0.3);
     }
 
-    /* Letter */
+    /* 💕 Floating photos */
+    .floating {
+      position: absolute;
+      width: 180px;
+      border-radius: 20px;
+      animation: float 6s ease-in-out infinite;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0); }
+    }
+
+    .pic1 { top: 15%; left: 5%; }
+    .pic2 { top: 15%; right: 5%; }
+    .pic3 { bottom: 15%; left: 8%; }
+    .pic4 { bottom: 15%; right: 8%; }
+
+    /* 🎥 Center video */
+    .center-video {
+      width: 260px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.5);
+      z-index: 2;
+    }
+
+    /* 💌 Letter */
     .letter {
       max-width: 820px;
       background: rgba(255,255,255,0.15);
@@ -100,7 +127,8 @@
 <div class="page active" id="page1">
   <h1>Parnika… will you be my Valentine? 🥺❤️</h1>
 
-  <img src="us1.jpg" width="220" style="border-radius:20px; margin-bottom:20px;">
+  <!-- Replace src with any cute beggy GIF you like -->
+  <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ2R1bnhsb3N3NWx5a3ZtZWhxanE0eHhlZ3Y5b2h1aXdzbWZwOGF4aiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/OPU6wzx8JrHna/giphy.gif" class="gif">
 
   <div>
     <button onclick="goToPage(2)">Yes 💖</button>
@@ -110,16 +138,18 @@
 
 <!-- 💕 PAGE 2 -->
 <div class="page" id="page2">
-  <h1>OMGGGG!!! 😭❤️<br>Parnika, you really clicked YES!!</h1>
+  <h1>OMGGGG!!! 😭❤️<br>You really clicked YES!</h1>
 
-  <div class="gallery">
-    <img src="us2.jpg">
-    <img src="us3.jpg">
-    <video src="us4.mp4" controls></video>
-    <img src="us5.jpg">
-  </div>
+  <img src="us2.jpg" class="floating pic1">
+  <img src="us3.jpg" class="floating pic2">
+  <img src="us5.jpg" class="floating pic3">
+  <img src="us1.jpg" class="floating pic4">
 
-  <button onclick="goToPage(3)">Click here for something special 💌</button>
+  <video src="us4.mp4" class="center-video" autoplay loop muted playsinline></video>
+
+  <button onclick="goToPage(3)" style="margin-top:40px;">
+    Click here for something special 💌
+  </button>
 </div>
 
 <!-- 💌 PAGE 3 -->
@@ -148,7 +178,7 @@
 
     <p>
       Most of all, I love you because loving you feels natural.
-      It’s not forced or dramatic—it’s steady, deep, and real.
+      It’s steady, deep, and real.
       You’re not just someone I love; you’re someone I choose, every single day.
       And I’ll keep choosing you, always. ❤️
     </p>
@@ -174,7 +204,7 @@
     noBtn.style.top = Math.random() * 80 + 'vh';
   });
 
-  // Hearts animation
+  // Hearts
   function createHeart() {
     const heart = document.createElement('div');
     heart.className = 'heart';
@@ -182,7 +212,6 @@
     heart.style.left = Math.random() * 100 + 'vw';
     heart.style.animationDuration = Math.random() * 3 + 3 + 's';
     document.body.appendChild(heart);
-
     setTimeout(() => heart.remove(), 6000);
   }
   setInterval(createHeart, 300);
